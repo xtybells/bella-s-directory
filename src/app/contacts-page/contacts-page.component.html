@@ -1,0 +1,34 @@
+<div class="searchBar">
+  <label> Search contacts: </label>
+  <input type="search">
+</div>
+
+<div class="table">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Email Address</th>
+    </tr>
+
+    <tr *ngFor="let address of addressArray">
+      <td>{{address.name}}</td>
+      <td>{{address.phoneNumber}}</td>
+      <td>{{address.email}}</td>
+    </tr>
+  </table>
+  
+</div>
+
+<div>
+    <label>Name</label>
+    <input type="text" [(ngModel)]="name">
+    <br>
+    <label>PhoneNumber</label>
+    <input type="number" [(ngModel)]="phoneNumber">
+    <br>
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email">
+    <br>
+    <button (click)="addNewContact()" class="newContact">Add New Contact</button>
+</div>

@@ -1,0 +1,21 @@
+<!-- Make a mobile-like address book. It presents some interesting things:
+Repetitive content (in the address list)
+Components
+Saving data (possibly to localStorage?)
+Views
+Filters
+At a bare level, it should have: 
+A list showing everything saved: names, addresses, phone numbers or anything you feel like adding
+Search bar (filters entries which have the text in any part of its contents)
+A button that opens a "new contact" form (either popup or modal)
+Possibility to edit existing contacts
+When you get all of that working, here are some extra challenges:
+Use a Google map to select the address
+Allow taking pictures with webcam, or file upload
+Use approximate search ("avene" matches "avenue", "robetr" matches "robert") (hint: edit distance) -->
+
+
+<app-welcome-page *ngIf="welcome"></app-welcome-page>
+
+<app-contacts-page></app-contacts-page>
+
