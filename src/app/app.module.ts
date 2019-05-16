@@ -10,7 +10,9 @@ import { from } from 'rxjs';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
 import 'hammerjs';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import 'hammerjs';
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
