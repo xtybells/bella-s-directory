@@ -9,9 +9,12 @@ import { ContactsPageComponent } from './contacts-page/contacts-page.component';
 import { from } from 'rxjs';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 import 'hammerjs';
+
 
 
 @NgModule({
@@ -27,7 +30,11 @@ import 'hammerjs';
     BrowserAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,36 +1,49 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+// export interface PeriodicElement {
+//   name: string;
+//   position: number;
+//   phoneNumber: string;
+//   email: string;
+// }
 
-/**
- * @title Basic use of `<table mat-table>`
- */
 @Component({
   selector: 'app-contacts-page',
- templateUrl: './contacts-page.component.html',
- styleUrls: ['./contacts-page.component.css']
+  templateUrl: './contacts-page.component.html',
+  styleUrls: ['./contacts-page.component.css']
 })
+
 export class ContactsPageComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['position', 'name', 'phoneNumber', 'email'];
+  phoneNumber = ""
+  name = ""
+  email = ""
+  popUpForm = false
+  addNewContactButton = true
+
+  addressArray = [
+    { name: 'Christy', phoneNumber: "08062190101", email: 'christyilo@gmail.com' },
+    { name: 'Amin', phoneNumber: "080876543245", email: 'aminbalo@gmail.com' },
+    { name: 'Ifeoma', phoneNumber: "08076543289", email: 'ifeomamazi@gmail.com' },
+    { name: 'Emeka', phoneNumber: "090987654376", email: 'mazicode@gmail.com' },
+  ];
+
+  openDialog() {
+    this.popUpForm = true
+    this.addNewContactButton = false
+  }
+
+  addNewContact() {
+    let address = { name: this.name, phoneNumber: this.phoneNumber, email: this.email }
+    this.addressArray.push(address)
+    this.addressArray = JSON.parse(JSON.stringify(this.addressArray))
+    console.log(this.addressArray)
+
+
+  }
 }
 
 
@@ -61,8 +74,5 @@ export class ContactsPageComponent {
 //   ngOnInit() {
 //   }
 
-//   addNewContact() {
-//     let address = {phoneNumber: this.phoneNumber, name: this.name, email: this.email}
-//     this.addressArray.push(address)
-//   }
-// }
+//   
+// 
