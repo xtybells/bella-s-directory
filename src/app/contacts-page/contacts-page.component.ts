@@ -2,14 +2,6 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { MatDialog } from '@angular/material';
 
-
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   phoneNumber: string;
-//   email: string;
-// }
-
 @Component({
   selector: 'app-contacts-page',
   templateUrl: './contacts-page.component.html',
@@ -25,6 +17,7 @@ export class ContactsPageComponent {
   addNewContactButton = true
   save = true
   searchBar: any 
+  
 
   addressArray = [
     { name: 'Christy', phoneNumber: "08062190101", email: 'christyilo@gmail.com' },
@@ -33,11 +26,13 @@ export class ContactsPageComponent {
     { name: 'Emeka', phoneNumber: "090987654376", email: 'mazicode@gmail.com' },
   ];
 
+    //saveButton
   openDialog() {
     this.popUpForm = true
     this.addNewContactButton = false
   }
 
+    //addContactButton
   addNewContact() {
     let address = { name: this.name, phoneNumber: this.phoneNumber, email: this.email }
     this.addressArray.push(address)
@@ -52,46 +47,16 @@ export class ContactsPageComponent {
     this.addNewContactButton = true
   }
 
+    //searchBar
   search(){
 
     for(let x = 0; x < this.addressArray.length; x ++){
       if(this.searchBar === this.addressArray[x].name){
         console.log(this.addressArray[x])
-
+        this.addressArray = [this.addressArray[x]]
       }
     }
   }
 
 
 }
-
-
-// import { Component, OnInit } from '@angular/core';
-// import { Contacts } from '../contacts';
-
-// @Component({
-//   selector: 'app-contacts-page',
-//   templateUrl: './contacts-page.component.html',
-//   styleUrls: ['./contacts-page.component.css']
-// })
-// export class ContactsPageComponent implements OnInit {
-//   name = ""
-//   phoneNumber = ""
-//   email = ""
-//   searchBar = ""
-
-//   addressArray: any = [
-//     { phoneNumber: "0806217654", name: "Amin", email: "aminBalo@getMaxListeners.com" },
-//     { phoneNumber: "08097654387", name: "Emeka", email: "emekanwa@gmail.com" },
-//     { phoneNumber: "0986432568", name: "Ifeoma", email: "ifygbeke@gmail.com" },
-//     { phoneNumber: "0986432568", name: "christy", email: "christyilo@gmail.com" }
-
-//   ]
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-//   
-// 
