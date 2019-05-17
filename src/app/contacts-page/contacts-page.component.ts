@@ -23,6 +23,8 @@ export class ContactsPageComponent {
   email = ""
   popUpForm = false
   addNewContactButton = true
+  save = true
+  searchBar: any 
 
   addressArray = [
     { name: 'Christy', phoneNumber: "08062190101", email: 'christyilo@gmail.com' },
@@ -41,9 +43,26 @@ export class ContactsPageComponent {
     this.addressArray.push(address)
     this.addressArray = JSON.parse(JSON.stringify(this.addressArray))
     console.log(this.addressArray)
-
-
+    this.save = false
+    this.popUpForm = false
+    this.name = ""
+    this.phoneNumber = ""
+    this.email = ""
+    this.save = true
+    this.addNewContactButton = true
   }
+
+  search(){
+
+    for(let x = 0; x < this.addressArray.length; x ++){
+      if(this.searchBar === this.addressArray[x].name){
+        console.log(this.addressArray[x])
+
+      }
+    }
+  }
+
+
 }
 
 
