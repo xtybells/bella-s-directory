@@ -2,9 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
-import { AppRoutingModule, routingcomponents } from './app-routing.module';
+import { AppRoutingModule, routingcomponents} from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CommonModule } from '@angular/common';
 import { from } from 'rxjs';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -32,8 +31,7 @@ import 'hammerjs';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule,
-    CommonModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
