@@ -43,3 +43,12 @@
     </tbody>
   </table>
 </div>
+
+<!-- <h2 *ngFor="let item of chats">{{item.nickname}}: <p>{{item.msg}}</p></h2> -->
+
+<input type="text" [(ngModel)]="newMessage.nickname">
+<input type="text" [(ngModel)]="newMessage.msg">
+<button (click)="postNewMessage()">post</button>
+
+<hr>
+<button (click)="nextPage()">Next</button>
