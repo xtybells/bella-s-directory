@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { AppRoutingModule, routingcomponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { from } from 'rxjs';
+import { ApiService } from './api.service';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule} from '@angular/material';
@@ -37,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

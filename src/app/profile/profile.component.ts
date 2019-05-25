@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { nextContext } from '@angular/core/src/render3';
+import { ApiService } from '../api.service'
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
   page = 0
   limit = 3
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _apiService: ApiService) { }
 
   ngOnInit() {
     this.getDepartments()
@@ -32,8 +33,8 @@ export class ProfileComponent implements OnInit {
   }
 
   chatMethod = (chat) => {
-  this.chats = chat
-  console.log(chat)
+    this.chats = chat
+    console.log(chat)
   }
 
   errorMethod = (error) => {
@@ -41,27 +42,28 @@ export class ProfileComponent implements OnInit {
   }
 
   getDepartments() {
-    this.http.get(`https://smart-clinic.smartapps.com.ng/v1/department?page=${this.page}&limit=${this.limit}`).subscribe(
+    this._apiService.getSmartData('department?page=${this.page}&limit=${this.limit').subscribe(
       this.responseMethod,
       this.errorMethod
     );
   }
 
-  nextPage(){
+  nextPage() {
     this.page = this.page + 1
     this.getDepartments()
   }
 
 
   getChats() {
-    this.http.get('https://bashed.herokuapp.com/router/messages').subscribe(
+    this._apiService.getData('messages').subscribe(
       this.chatMethod,
       this.errorMethod
     )
+
   }
 
-  postNewMessage(){
-    this.http.post('https://bashed.herokuapp.com/router/postmsg', this.newMessage).subscribe(
+  postNewMessage() {
+    this._apiService.postData('postmsg', this.newMessage).subscribe(
       (res) => {
         console.log(res)
       },
